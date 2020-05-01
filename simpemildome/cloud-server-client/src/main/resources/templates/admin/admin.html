@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+  <title>table模块快速使用</title>
+  <link rel="stylesheet" href="/layui/css/layui.css?t=2" media="all">
+  <link rel="stylesheet" href="/css/common.css?t=2" media="all">
+</head>
+<style type="text/css" id="LAY_layadmin_theme"></style>
+<body>
+<div id="LAY_WRAP">
+  <div id='LAY_app' class="layui-side layui-bg-black">
+      <div class="layui-side-scroll">
+          <div class="layui-logo" lay-href=""> <span>layuiAdmin Pro</span> </div>
+          <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
+          <ul class="layui-nav layui-nav-left layui-nav-tree" lay-filter="layui-nav-left">
+              <li class="layui-nav-item">
+                  <a class="" href="javascript:;"><i class="layui-icon layui-icon-face-smile"></i> <cite >导航1</cite></a>
+                  <dl class="layui-nav-child">
+                      <dd><a class="" href="/blog/admin/admin.html"> <cite >文章管理</cite></a>
+                      </dd>
+                      <dd><a href="/blog/admin/uploadImg.html"><i class="fa fa-clipboard fa-lg"></i> <cite >图片添加</cite></a></dd>
+                      <dd><a href="/blog/admin/update.html"><i class="fa fa-file-text fa-lg"></i> <cite >更新内容</cite></a></dd>
+                  </dl>
+              </li>
+              <li class="layui-nav-item">
+                  <a href="javascript:;"><i class="layui-icon layui-icon-face-smile"></i> <cite >导航2</cite></a>
+                  <dl class="layui-nav-child">
+                      <dd><a href="javascript:;"> <cite >测试</cite></a></dd>
+                      <dd><a href="javascript:;"> <cite >测试</cite></a></dd>
+                  </dl>
+              </li>
+          </ul>
+      </div>
+  </div>  
+
+  <!--主体-->
+  <div class="layui-body" id="LAY_app_body">
+    <div class="layui-header">
+          <!-- 头部区域 -->
+          <ul class="layui-nav layui-layout-left" lay-filter="layadmin-layout-left">
+            <li class="layui-nav-item layadmin-flexible" lay-unselect="">
+              <a href="javascript:;" layadmin-event="flexible" title="侧边伸缩">
+                <i class="layui-icon layui-icon-shrink-right" id="LAY_app_flexible"></i>
+              </a>
+            </li>
+            <li class="layui-nav-item" lay-unselect="">
+              <a href="javascript:;" layadmin-event="refresh" title="刷新">
+                <i class="layui-icon layui-icon-refresh-3"></i>
+              </a>
+            </li>
+            <li class="layui-nav-item layui-hide-xs" lay-unselect="">
+              <input type="text" placeholder="搜索..." autocomplete="off" class="layui-input layui-input-search" layadmin-event="serach" lay-action="template/search/keywords="> 
+            </li>
+        </ul>
+        <ul class="layui-nav layui-layout-right" lay-filter="layadmin-layout-right">
+            <li class="layui-nav-item" lay-unselect=""> 
+              <a href="javascript:;"> <span>Choutest</span> <span class="layui-nav-more"></span></a> 
+              <dl class="layui-nav-child"> 
+                  <dd><a lay-href="set/user/info">基本资料</a></dd>
+                  <dd><a lay-href="set/user/password">修改密码</a></dd> 
+                  <hr> 
+                  <dd layadmin-event="logout" style="text-align: center;"><a>退出</a></dd> 
+              </dl> 
+            </li>
+        </ul>
+      </div>
+    <div class="layui-fluid">
+      <div class="layui-row layui-col-space15">
+        <div class="layui-col-md12">
+          <div class="layui-card"> </div>
+        </div>
+        <div class="layui-col-md12">
+          <div class="layui-card"> </div>
+        </div>
+      </div>
+    </div>
+	  <div align="center">
+
+<div style="float: right;">
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-default" data-toggle="modal" data-target="#myModals">添加</button>
+<button class="btn btn-default" type="submit">修改</button>
+</div>
+
+<table class="table table-hover" id="tables">
+		  <tr>
+			  <th>id</th>
+			  <th>标题</th>
+			  <th>图片</th>
+			  <th>操作</th>
+		  </tr>
+</table>
+
+<!-- 分页 -->
+<nav aria-label="Page navigation">
+  <ul class="pagination">
+    <li>
+      <a  aria-label="Previous" id="onPage">
+        <span aria-hidden="true" onclick="onPage()">&laquo;</span>
+      </a>
+    </li>
+    <li>
+      <a  aria-label="Next" id="nextPage">
+        <span aria-hidden="true" onclick="nextPage()">&raquo;</span>
+      </a>
+    </li>
+  </ul>
+</nav>
+
+	  </div>
+  </div>
+</div>
+
+<!--添加模态框-->
+<div class="modal fade" id="myModals" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+            </div>
+            <div class="modal-body">
+
+                <form class="form-inline">
+                    <div class="form-group">
+                        <label for="exampleInputName2">标题</label>
+                        <input type="text" class="form-control" id="exampleInputName2ss" >
+                    </div><br />
+                    <div class="form-group">
+                        <label for="exampleInputEmail2s">内容</label>
+                        <textarea rows="4" cols="25" id="editor"></textarea>
+                    </div><br />
+                    <div class="form-group">
+                        <label for="exampleInputEmail2s">简略介绍</label>
+                        <input type="text" class="form-control" id="exampleInputEmail2s">
+                    </div><br />
+                </form>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" onClick="savef()">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 模态框 -->
+
+
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+      </div>
+      <div class="modal-body">
+      
+        <form class="form-inline" action="/blogup" method="post" id="blogform">
+		  <div class="form-group">
+              <input type="hidden" name="id" value="" id="id">
+		    <label for="exampleInputName2">标题</label>
+		    <input type="text" class="form-control" id="exampleInputName2" name="title" >
+		  </div><br />
+		  <div class="form-group">
+		    <label for="exampleInputEmail3">内容</label>
+		    <textarea rows="4" cols="25"  id = "exampleInputEmail3" name="content"></textarea>
+		  </div><br />
+				<div class="form-group">
+		    <label for="exampleInputEmail4">简介</label>
+               <textarea rows="4" cols="25" id="exampleInputEmail4" name="smple"></textarea>
+		  </div><br />
+		</form>
+		
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" onClick="save()">修改</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--  -->
+<!--辅助作用一般用于手机遮罩层-->
+<div class="layui-layer-shade mobilenav" id="mobilenav" onClick="clearmobilenav()" style="z-index: 998; background-color: rgb(0, 0, 0); opacity: 0.3;display:none"></div>
+</body>
+<script type="text/javascript" src="/js/jquery.min.js"></script>
+<link href="/bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet" media="screen">
+<script src="/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="layui/layui.js?t=2"></script>
+<script type="text/javascript" src="js/common.js?t=2"></script>
+<script type="text/javascript" charset="utf-8" src="/fwb/ueditor.config.js"></script>
+<script type="text/javascript" charset="utf-8" src="/fwb/ueditor.all.min.js"> </script>
+<script type="text/javascript">
+    var ue = UE.getEditor('editor');
+    var next = 1;
+    //添加内容
+	function savef() {
+		$.ajax({
+		url: "save",
+		type:"post",
+		dataType:"text",
+		data:{"title":$("#exampleInputName2ss").val(),"content":ue.getContent(),"img":$("#exampleInputEmail2s").val()},
+		success: function (result) {
+		        alert("添加成功!");
+		        $("#exampleInputName2").val("");
+		        $("#exampleInputEmail2").val("");
+		        ue.setContent('');
+		        $("#myModal").modal("hide");
+		}
+		});
+	
+	}
+	//静态生成表格内容
+	 $(document).ready(function(){
+	     page(1)
+	 })
+	 
+	 //主方法
+	 function page(pageNum) {
+	    if (next < 0 ) {
+	        $("#onPage").addClass(".disabled")
+	    }else {
+
+        }
+	    $.ajax({
+		url: "/getdata/" + pageNum,
+		type:"get",
+		dataType:"json",
+		success: function (result) {
+		        createHtml(result)
+		}
+		});
+	 }
+	 //下一页
+
+	 function nextPage(){
+	      next += 1;
+	      page(next);
+	 
+	 }
+	 //上一页
+	 function onPage(){
+	     next -= 1;
+	     page(next);
+	 }
+	 
+	 //根据每页生成数据
+	 function createHtml(result) {
+
+	    $("#tables").empty();
+	    var tb = $("<tr><th>id</th><th>标题</th><th>图片</th><th>操作</th></tr>");
+	    $("#tables").append(tb);
+	    $.each(result.data.list,function(index,item){
+  				var id = $("<td onclick='updata(this)'></td>").append(item.id);
+  				var title = $("<td </td>").append(item.title);
+  				var img = $("<td></td>").append(item.smple);
+  				var editBtn =$("<td><a><span class='glyphicon glyphicon-trash'></span></a>").attr("del_id",item.id).click(function(){
+  					delJson($(this).attr("del_id"));})
+  				$("<tr></tr>").append(id).append(title).append(img).append(editBtn).appendTo("#tables")
+  				});
+	 }
+	 
+	 function delJson(id){
+
+	     $.ajax({
+	     	url:"delblog/" + id,
+	        type:"post",
+			dataType:"json",
+			success: function (result) {
+	     	   if (result.code == 200) {
+                   alert("删除成功!");
+                   page(1);
+               }
+            }
+	     })
+	 }
+
+	 function save() {
+         $("#blogform").submit()
+     }
+
+
+	 function updata(obj) {
+	    //修改内容
+         $('#myModal').modal()
+         $.ajax({
+         	url:"blogjson/" + $(obj).text(),
+            type:"get",
+            dataType:"json",
+         success: function (result) {
+         	    $("#id").val(result.data.id)
+             $("#exampleInputName2").val(result.data.title)
+             $("#exampleInputEmail3").val(result.data.content)
+             $("#exampleInputEmail4").val(result.data.smple)
+
+            }
+         })
+     }
+</script>
+</html>

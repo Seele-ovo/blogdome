@@ -1,0 +1,7 @@
+spring:
+  cloud:
+    config:
+      name: cloud-server-blog
+      profile: server-blog
+      label: master
+      uri: http://localhost:7001

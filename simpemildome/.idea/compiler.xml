@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="clond-gw" />
+        <module name="cloud-server-client" />
+        <module name="cloudadminserver" />
+        <module name="cloudconfigserver" />
+        <module name="cloudcore" />
+        <module name="cloudcourse" />
+        <module name="cloudeurekaserver" />
+        <module name="cloudhystrixdishboard" />
+        <module name="clouduser" />
+        <module name="demo-trest" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="cloud-zuul" target="1.8" />
+      <module name="cloudcserverclient" target="1.8" />
+      <module name="cloudgateway" target="1.8" />
+      <module name="cloudzuul" target="1.8" />
+      <module name="spring-gw" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="clond-gw" options="-parameters" />
+      <module name="cloud-server-client" options="-parameters" />
+      <module name="cloud-zuul" options="-parameters" />
+      <module name="cloudadminserver" options="-parameters" />
+      <module name="cloudconfigserver" options="-parameters" />
+      <module name="cloudcore" options="-parameters" />
+      <module name="cloudcourse" options="-parameters" />
+      <module name="cloudcserverclient" options="-parameters" />
+      <module name="cloudeurekaserver" options="-parameters" />
+      <module name="cloudgateway" options="-parameters" />
+      <module name="cloudhystrixdishboard" options="-parameters" />
+      <module name="clouduser" options="-parameters" />
+      <module name="cloudzuul" options="-parameters" />
+      <module name="demo-trest" options="-parameters" />
+      <module name="spring-gw" options="-parameters" />
+    </option>
+  </component>
+</project>

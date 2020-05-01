@@ -1,0 +1,20 @@
+spring:
+  application:
+    name: zuul
+
+#        - id: business-account
+#          uri: lb://CLOUD-SERVER-BLOG
+#          predicates:
+#            - Path=/account/get
+
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    service-url:
+      defaultZone: http://localhost:6002/eureka/
+zuul:
+  routes:
+    cloud-server-blog: /**
+server:
+  port: 3366

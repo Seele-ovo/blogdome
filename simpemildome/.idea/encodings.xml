@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding" addBOMForNewFiles="with NO BOM">
+    <file url="file://$PROJECT_DIR$" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/clond-gw" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/cloud-admin-server" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/cloud-config-server" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/cloud-core" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/cloud-eureka-server" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/cloud-hystrix-dishboard" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/cloud-server" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/cloud-server-client" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/cloud-server/cloud-course" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/cloud-server/cloud-user" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/cloud-zuul" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/cloud-zuul" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/cloud-zuul" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/demo-trest" charset="UTF-8" />
+  </component>
+</project>

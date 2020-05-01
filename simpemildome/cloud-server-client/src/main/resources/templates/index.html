@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org">
+
+	<head>
+
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<title>响应式简单个性个人博客模板</title>
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+		<link rel="stylesheet" type="text/css" href="css/index.css" media="all"/>
+	</head>
+
+	<body class="home blog custom-background round-avatars">
+		<div class="Yarn_Background" style="background-image: url(images/70457116_p0.jpg);"></div>
+		<form class="js-search search-form search-form--modal" onsubmit="return check()">
+			<div class="search-form__inner">
+				<div>
+					<div  class="">
+						<form>
+							<div class="filter_container">
+                                <input type="text"  placeholder="文章标题"  id = "search"/>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</form>
+		<div class="navi" data-aos="fade-down">
+			<div class="bt-nav">
+				<div class="line line1"></div>
+				<div class="line line2"></div>
+				<div class="line line3"></div>
+			</div>
+			<div class="navbar animated fadeInRight">
+				<div class="inner">
+					<nav id="site-navigation" class="main-navigation">
+						<div id="main-menu" class="main-menu-container">
+							<div class="menu-menu-container">
+								<ul id="primary-menu" class="menu">
+									<li id="menu-item-17" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-17">
+										<a href="#">首页</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</nav>
+					<!-- #site-navigation -->
+				</div>
+			</div>
+		</div>
+		<div class="hebin" data-aos="fade-down">
+			<i class=" js-toggle-search iconfont">&#xe60e;</i>
+		</div>
+		<header id="masthead" class="overlay animated from-bottom" itemprop="brand">
+			<!-- .site-branding -->
+			<div class="decor-part">
+				<div id="particles-js"></div>
+			</div>
+			<div class="animation-header">
+				<div class="decor-wrapper">
+					<svg id="header-decor" class="decor bottom" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 100 100" preserveAspectRatio="none">
+						<path class="large left" d="M0 0 L50 50 L0 100" fill="rgba(255,255,255, .1)"></path>
+						<path class="large right" d="M100 0 L50 50 L100 100" fill="rgba(255,255,255, .1)"></path>
+						<path class="medium left" d="M0 100 L50 50 L0 33.3" fill="rgba(255,255,255, .3)"></path>
+						<path class="medium right" d="M100 100 L50 50 L100 33.3" fill="rgba(255,255,255, .3)"></path>
+						<path class="small left" d="M0 100 L50 50 L0 66.6" fill="rgba(255,255,255, .5)"></path>
+						<path class="small right" d="M100 100 L50 50 L100 66.6" fill="rgba(255,255,255, .5)"></path>
+						<path d="M0 99.9 L50 49.9 L100 99.9 L0 99.9" fill="rgba(255,255,255, 1)"></path>
+						<path d="M48 52 L50 49 L52 52 L48 52" fill="rgba(255,255,255, 1)"></path>
+					</svg>
+				</div>
+			</div>
+		</header>
+		<div id="main" class="content">
+			<div class="container">
+				<article itemscope="itemscope">
+					<div class="posts-list js-posts" id="add">
+						<!-- 模板 -->
+
+					</div>
+					<!-- post-formats end Infinite Scroll star -->
+					<!-- post-formats -->
+					<div  onclick="loadss()" align="center" >
+						<div onmouseout="this.style.cursor='hand'" style="cursor:pointer;"><span><i class="iconfont" >&#xe605;</i></span></div>
+
+					</div>
+				</article>
+					<!-- -pagination  -->
+			</div>
+		</div>
+	</body>
+		</div>
+	<div id="temp" style="display: none">
+		<div class="post post-layout-list" data-aos="fade-up">
+			<div class="postnormal review ">
+				<div class="post-container review-item">
+					<div class="row review-item-wrapper">
+						<div class="col-sm-3">
+							<a rel="nofollow" href="show/{id}">
+								<div class="review-item-img" style="background-image: url(images/diego-ph-249471-2-800x1000.jpg)"></div>
+							</a>
+						</div>
+						<div class="col-sm-9 flex-xs-middle">
+							<div class="review-item-title">
+								<a href="show/{id}" rel="bookmark">{title}</a>
+							</div>
+							<div class="review-item-creator"><b>发布日期：</b>{data}</div>
+							<span class="review-item-info"><b>总浏览量：</b>{read}</span>
+						</div>
+					</div>
+					<div class="review-bg-wrapper">
+						<div class="bg-blur" style="background-image: url(images/diego-ph-249471-2-800x1000.jpg);"></div>
+					</div>
+				</div>
+				<div class="post-container">
+					<div class="entry-content">{simple}</div>
+					<div class="post-footer">
+						<a class="gaz-btn primary" href="/show/{id}">READ MORE</a>
+						<span class="total-comments-on-post pull-right"></span>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+		<footer id="footer" class="overlay animated from-top">
+			<div class="decor-wrapper">
+				<svg id="footer-decor" class="decor top" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 100 100" preserveAspectRatio="none">
+					<path class="large left" d="M0 0 L50 50 L0 100" fill="rgba(255,255,255, .1)"></path>
+					<path class="large right" d="M100 0 L50 50 L100 100" fill="rgba(255,255,255, .1)"></path>
+					<path class="medium left" d="M0 0 L50 50 L0 66.6" fill="rgba(255,255,255, .3)"></path>
+					<path class="medium right" d="M100 0 L50 50 L100 66.6" fill="rgba(255,255,255, .3)"></path>
+					<path class="small left" d="M0 0 L50 50 L0 33.3" fill="rgba(255,255,255, .5)"></path>
+					<path class="small right" d="M100 0 L50 50 L100 33.3" fill="rgba(255,255,255, .5)"></path>
+					<path d="M0 0 L50 50 L100 0 L0 0" fill="rgba(255,255,255, 1)"></path>
+					<path d="M48 48 L50 51 L52 48 L48 48" fill="rgba(255,255,255, 1)"></path>
+				</svg>
+			</div>
+			<div class="cr">
+				<a href="">17sucai</a>
+			</div>
+			<script type='text/javascript' src='js/jquery.min.js'></script>
+			<script type='text/javascript' src='js/plugins.js'></script>
+			<script type='text/javascript' src='js/script.js'></script>
+			<script type='text/javascript' src='js/particles.js'></script>
+			<script type='text/javascript' src='js/aos.js'></script>
+			<script>
+				function loadss() {
+					num+=1;
+					ajax(num);
+				}
+				var num = 1;
+				$(document).ready(function(){
+					ajax(num);
+				})
+
+				function ajax(page) {
+					$.ajax({
+						url:"getdata/" + page,
+						dataType:"json",
+						type:"get",
+						success:function(result) {
+							$.each(result.data.list, function (idx, obj)
+							{
+							    $("add").empty();
+								createHtml(obj);
+							})
+						}
+					})
+				}
+				function createHtml(result) {
+					var html = $("#temp").html();
+					html = html.replace(/{id}/g, result.id);
+					html = html.replace(/{title}/, result.title);
+					html = html.replace(/{data}/, result.date);
+					html = html.replace(/{read}/g, result.read);
+					html = html.replace(/{simple}/, result.smple);
+					$("#add").append(html);
+				}
+				$(document).keyup(function(event){
+					if(event.keyCode ==13){
+                        $.ajax({
+                            url:"serch/" + $("#search").val(),
+                            dataType:"json",
+                            type:"get",
+                            success:function(result) {
+                            	$("#add").empty();
+                                $.each(result.data, function (idx, obj)
+                                {
+                                    createHtml(obj);
+                                })
+                            }
+                        })
+						//$("#submit").trigger("click");
+					}
+				});
+
+				var check = function(){
+						return false;
+				}
+			</script>
+		</footer>
+	</body>
+
+</html>
+
+

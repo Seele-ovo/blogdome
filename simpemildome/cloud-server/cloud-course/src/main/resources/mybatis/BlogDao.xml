@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cm.exaple.blog.dao.BlogDao">
+    <resultMap id="BaseResultMap" type="cn.example.code.entity.BlogBean">
+        <id column="blog_id" jdbcType="INTEGER" property="id" />
+        <result column="blog_title" jdbcType="VARCHAR" property="title" />
+        <result column="blog_data" jdbcType="VARCHAR" property="date" />
+        <result column="blog_read" jdbcType="VARCHAR" property="read" />
+        <result column="blog_content" jdbcType="VARCHAR" property="content" />
+        <result column="blog_smple" jdbcType="VARCHAR" property="smple" />
+    </resultMap>
+    <select id="selBlog" resultMap="BaseResultMap">
+        SELECT * FROM mytest.blog
+    </select>
+    <select id="selBlogBean" resultMap="BaseResultMap">
+        SELECT * FROM mytest.blog where blog_id = #{0}
+    </select>
+    <select id="selSerchBlog" resultMap="BaseResultMap">
+        SELECT * FROM mytest.blog where blog_title like CONCAT('%',#{0},'%')
+    </select>
+    <update id="upReadBlog" parameterType="cn.example.code.entity.BlogBean">
+        UPDATE `mytest`.`blog` SET `blog_read` =blog_read + 1  WHERE (`blog_id` = #{0});
+    </update>
+
+    <delete id="delBlog">
+        DELETE FROM `mytest`.`blog` WHERE (`blog_id` = #{0});
+    </delete>
+
+    <update id="upBlog" parameterType="java.lang.String">
+
+        UPDATE `mytest`.`blog` SET `blog_title` = #{param1}, `blog_content` = #{param2}, `blog_smple` = #{param3} WHERE (`blog_id` = #{param4});
+
+    </update>
+
+    <insert id="addBlog" parameterType="java.lang.String">
+        INSERT INTO `mytest`.`blog` (`blog_title`, `blog_data`, `blog_read`, `blog_content`, `blog_smple`) VALUES (#{param1}, '2018-9-6', '1', #{param2}, #{param3});
+    </insert>
+</mapper>

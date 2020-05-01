@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.exampl.useradmin.dao.UserDao">
+    <resultMap id="BaseResultMap" type="cn.exampl.useradmin.enitiy.User">
+        <id column="id" jdbcType="INTEGER" property="id" />
+        <result column="name" jdbcType="VARCHAR" property="name" />
+        <result column="pwd" jdbcType="VARCHAR" property="pwd" />
+        <result column="useremail" jdbcType="VARCHAR" property="userEmail" />
+        <result column="poho" jdbcType="VARCHAR" property="poho" />
+        <result column="rigdata" jdbcType="VARCHAR" property="rigData" />
+        <result column="usercol" jdbcType="VARCHAR" property="userCol" />
+    </resultMap>
+<!--查询是否存在当前对象-->
+    <select id="getUser" resultMap="BaseResultMap">
+        select * from user where name= #{name} and pwd = #{pwd}
+    </select>
+    <!--查询全部数据-->
+    <select id="listUser" resultMap="BaseResultMap">
+        select * from user
+    </select>
+    <!--删除数据-->
+    <delete id="delUser">
+        DELETE FROM `mytest`.`user` WHERE (`id` = #{0});
+    </delete>
+    <!--修改数据-->
+    <update id="upUser" parameterMap="BaseResultMap">
+
+    </update>
+</mapper>

@@ -1,0 +1,7 @@
+spring:
+  cloud:
+    config:
+      name: cloud-admin-server
+      profile: cloud-admin-server
+      label: master
+      uri: http://localhost:7001
